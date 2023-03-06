@@ -142,3 +142,7 @@ button{
 .hidden{
     display: none;
 }
+
+button:active, i:active{
+    transform: translateY(4px);
+}
