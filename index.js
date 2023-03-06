@@ -41,8 +41,20 @@ function handleLikeClick(tweetId){
         targetTweetObj.likes++ 
     }
     targetTweetObj.isLiked = !targetTweetObj.isLiked
-    render()
+    toggleCommentsOrNah(tweetId)
 }
+
+function toggleCommentsOrNah(tweetId){
+    const replies = document.getElementById(`replies-${tweetId}`)
+    
+    if (replies.classList.contains('hidden')){
+        render()
+    } else {
+        render()
+        document.getElementById(`replies-${tweetId}`).classList.toggle('hidden')
+    }
+}
+
 
 function handleRetweetClick(tweetId){
     const targetTweetObj = tweetsData.filter(function(tweet){
@@ -56,7 +68,7 @@ function handleRetweetClick(tweetId){
         targetTweetObj.retweets++
     }
     targetTweetObj.isRetweeted = !targetTweetObj.isRetweeted
-    render() 
+    toggleCommentsOrNah(tweetId) 
 }
 
 function handleReplyTweetClick(replyId){
